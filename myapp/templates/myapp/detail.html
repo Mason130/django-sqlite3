@@ -1,3 +1,6 @@
+{% include 'myapp/head.html' %}
+
+<body>
 <form action="{% url 'myapp:vote' question.id %}" method="post">
 {% csrf_token %}
 <fieldset>
@@ -10,3 +13,5 @@
 </fieldset>
 <input type="submit" value="Vote">
 </form>
+
+<div><a style="font-size: 14px; color: white;" href="{% url 'myapp:index' %}">Reselect the question</a></div>

@@ -1,9 +1,12 @@
-<h1>{{ question.question_text }}</h1>
+{% include 'myapp/head.html' %}
 
 <ul>
+<legend><h1>Results</h1></legend>
 {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    <li style="font-size: 16px;">{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
 
-<a href="{% url 'myapp:detail' question.id %}">Vote again?</a>
+<div><a style="font-size: 14px; color: white;" href="{% url 'myapp:detail' question.id %}">Vote again?</a></div>
+<br>
+<div><a style="font-size: 14px; color: white;" href="{% url 'myapp:index' %}">Reselect the question</a></div>

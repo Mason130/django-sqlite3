@@ -1,5 +1,5 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+{% include 'myapp/head.html' %}
+
 {% if latest_question_list %}
     <ul>{% for question in latest_question_list %}
         <li><a href="{% url 'myapp:detail' question.id %}">{{ question.question_text }}</a></li>
@@ -8,3 +8,5 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+<div><a style="font-size: 14px; color: white;" href="{% url 'home' %}">Return to homepage</a></div>
